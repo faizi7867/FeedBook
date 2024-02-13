@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+</head>
+<body>
+
+
+</body>
+</html>
+{% extends 'basic.html' %}
+{% block title %}
+Register Page
+{% endblock %}
+{% block nav %}
+<div class="container" align="center">
+    <h1 style="color:green">Register Page</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container" align="center">
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+
+            <h5 class="card-title">Enter Your Details Here</h5>
+            {{login}}
+            <form method="post">
+                {% csrf_token %}
+
+                 <input type="text" name="tbusername" class="form-control" placeholder="Enter  UserName"/><br/>
+              <input type="text" name="tbemail"class="form-control" placeholder="Enter Email"/><br/>
+              <input type="password" name="tbpass1" class="form-control" placeholder="Enter Password"/><br/>
+              <input type="password" name="tbpass2" class="form-control" placeholder="Confirm Password" /><br/>
+                <input type="submit" class="form-control btn btn-secondary" value="Register"><br/>
+            </form>
+            <a href="{% url 'login' %}" class="btn btn-outline-success mt-3"> Already Registered Click here to Login </a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

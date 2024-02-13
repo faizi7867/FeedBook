@@ -1,0 +1,32 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}
+    HomePage
+{% endblock %}
+
+{% block content %}
+
+<br>
+<div class="container m-4">
+<h3>{{message.content}}</h3>
+<hr/>
+<hr>
+all comments
+<hr>
+{% for comment in comments %}
+{{comment.content}} -- posted by -- {{comment.user.username}}
+<br>
+{% endfor %}
+<hr>
+    <form action="/add_comment" method="post">
+    {% csrf_token %}
+    Add new Comment
+    <br>
+    <textarea class="form-control" name="comment"></textarea>
+
+    <br>
+    <input type="submit">
+</form>
+
+</div>
+{% endblock %}

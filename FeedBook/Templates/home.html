@@ -1,0 +1,22 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}
+    HomePage
+{% endblock %}
+
+{% block content %}
+<div class="container" >
+<h3>All Messages</h3>
+    {% for message in messages %}
+        <div class="contianer m-2 p-3 ">
+            <h2>{{message.content}}</h2>
+            <a href="{% url 'view' message.id %}">Comments</a>
+            {% if message.user.username == request.session.name %}
+            <a href="{% url 'update' message.id %}" >update</a>
+            <a href="{% url 'delete' message.id  %}" >delete</a>
+             {% endif %}
+        </div>
+
+    {% endfor %}
+</div>
+{% endblock %}

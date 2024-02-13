@@ -1,0 +1,16 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}
+    Create New Message
+{% endblock %}
+
+{% block content %}
+<div class="container" align="center">
+<h2>create message form comes here</h2>
+<form method="post" action="">
+    {% csrf_token %}
+    Message<textarea class="form-control" name="content"></textarea>
+    <input class="form-control btn btn-primary mt-3" type="submit"/>
+</form>
+</div>
+{% endblock %}
